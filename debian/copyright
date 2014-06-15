@@ -1,0 +1,16 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: virtual magnifying glass
+Upstream-Contact: felipemonteiro.carvalho.brasil at gmail.com
+Source: http://sourceforge.net/p/magnifier/code/HEAD/tarball
+
+Files: *
+Copyright: Copyright (C) 2014 Harri Pyy (Finland), Chris O'Donnell, Felipe Monteiro de Carvalho.
+License: GPL-3
+
+Files: debian/*
+Copyright: Copyright (c) 2014, Javier P.L. <chilicuil@ubuntu.com>
+License: GPL-3
+
+License: GPL-3
+ On Debian systems, the text of the GPL3 License can be found in
+ '/usr/share/common-licenses/GPL-3'.

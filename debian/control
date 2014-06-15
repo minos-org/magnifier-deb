@@ -1,0 +1,17 @@
+Source: magnifier
+Section: x11
+Priority: optional
+Maintainer: Javier P.L. <chilicuil@ubuntu.com>
+Build-Depends: debhelper (>= 7.0.5), libx11-6, libatk1.0-0, libcairo2, libpixman-1-0, libpango1.0-0, libgdk-pixbuf2.0-0, libgtk2.0-0, libglib2.0-0
+Standards-Version: 3.9.4
+Homepage: http://magnifier.sourceforge.net/
+Vcs-Browser: http://sourceforge.net/p/magnifier/code/HEAD/tree/
+
+Package: magnifier
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+#let's asume ppl wont try to use magnifier on uncommon envs and let's save them some dependences
+#Depends: ${shlibs:Depends}, ${misc:Depends}, libx11-6, libatk1.0-0, libcairo2, libpixman-1-0, libpango1.0-0, libgdk-pixbuf2.0-0, libgtk2.0-0, libglib2.0-0
+Description: Free, open source, screen magnifier, for Windows, Linux, FreeBSD and Mac OS X.
+ Virtual Magnifying Glass is a free, open source, cross-platform screen
+ magnification tool. It is simple, customizable, and easy-to-use.
