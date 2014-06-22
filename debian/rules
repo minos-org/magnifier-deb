@@ -8,7 +8,8 @@
 
 DEB_VERSION:=$(shell dpkg-parsechangelog -n1 | sed -n '/^Version: /s///p')
 DEB_UPSTREAM_VERSION:=$(shell DEB_VERSION=${DEB_VERSION}; echo $${DEB_VERSION%-*})
-#DEB_MASTER_VERSION:=$(shell DEB_UPSTREAM_VERSION=${DEB_UPSTREAM_VERSION}; echo $${DEB_UPSTREAM_VERSION\#*+git})
+DEB_UPSTREAM_VERSION:=$(shell DEB_UPSTREAM_VERSION=${DEB_UPSTREAM_VERSION}; echo $${DEB_UPSTREAM_VERSION\#*:})
+DEB_MASTER_VERSION:=$(shell DEB_UPSTREAM_VERSION=${DEB_UPSTREAM_VERSION}; echo $${DEB_UPSTREAM_VERSION\#*+git})
 
 # Uncomment this to turn on verbose mode.
 export DH_VERBOSE=1
@@ -21,10 +22,13 @@ override_dh_auto_configure:
 
 get-orig-source:
 	rm -rf debian/tmp; mkdir debian/tmp
-	cd debian/tmp; wget http://f.javier.io/rep/bin/magnifier32.bin
-	cd debian/tmp; wget http://f.javier.io/rep/bin/magnifier64.bin
-	cd debian/tmp; mkdir magnifier-${DEB_UPSTREAM_VERSION}
-	cd debian/tmp; mv magnifier*bin magnifier-${DEB_UPSTREAM_VERSION}
+	#cd debian/tmp; wget http://f.javier.io/rep/bin/magnifier32.bin
+	#cd debian/tmp; wget http://f.javier.io/rep/bin/magnifier64.bin
+	cd debian/tmp; wget https://github.com/minos-org/magnifier/archive/${DEB_MASTER_VERSION}.tar.gz
+	#cd debian/tmp; mkdir magnifier-${DEB_UPSTREAM_VERSION}
+	#cd debian/tmp; mv magnifier*bin magnifier-${DEB_UPSTREAM_VERSION}
+	cd debian/tmp; tar xvzf ${DEB_MASTER_VERSION}.tar.gz
+	cd debian/tmp; mv magnifier-* magnifier-${DEB_UPSTREAM_VERSION}
 	cd debian/tmp; tar cvJf magnifier_${DEB_UPSTREAM_VERSION}.orig.tar.xz magnifier-${DEB_UPSTREAM_VERSION}
 	mv debian/tmp/magnifier_${DEB_UPSTREAM_VERSION}.orig.tar.xz .
 	mv debian/tmp/magnifier-${DEB_UPSTREAM_VERSION} .

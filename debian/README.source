@@ -1,14 +1,20 @@
 Debian packaging for magnifier
 ------------------------------
 
-A quick summary in how update the Debian packaging:
+Steps to build this package:
 
-    git clone --dept=1 https://github.com/minos-org/magnifier-deb
-    cd magnifier-deb
-    debian/rules get-orig-source
-    mv debian magnifier-*
-    cd magnifier-*
-    [ Make here some adaptations, like updating debian/patches, if needed ]
-    [ add more details if required, $EDITOR debian/changelog ]
-    debuild -S
-    upload .dsc | .changes files
+```
+$ git clone --dept=1 https://github.com/minos-org/magnifier-deb
+$ cd magnifier-deb
+$ dch -i #insert proper upstream version (1:$(date +%Y%m%d%H%M)+git7digitsHash-minos)
+$ debian/rules get-orig-source
+$ mv debian magnifier-*
+$ cd magnifier-*
+
+[ Optional, make some adaptations, like updating debian/patches, if needed ]
+[ document additional changes if required, $EDITOR debian/changelog ]
+
+$ debuild -S
+
+[ Build .dsc (pbuilder) || Upload .changes file (dput) ]
+```
