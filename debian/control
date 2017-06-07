@@ -1,7 +1,7 @@
 Source: magnifier
 Section: x11
 Priority: optional
-Maintainer: Javier P.L. <chilicuil@ubuntu.com>
+Maintainer: Javier López <m@javier.io>
 Build-Depends: debhelper (>= 7.0.5), libx11-6, libatk1.0-0, libcairo2, libpixman-1-0, libpango1.0-0, libgdk-pixbuf2.0-0, libgtk2.0-0, libglib2.0-0
 Standards-Version: 3.9.4
 Homepage: http://magnifier.sourceforge.net/
